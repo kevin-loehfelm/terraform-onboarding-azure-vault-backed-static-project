@@ -1,0 +1,4 @@
+# Read Azure dynamic credentials for ${service_principal}
+path "${azure_secrets_path}/creds/${azure_secrets_role}" {
+  capabilities = [ "read" ]
+}
