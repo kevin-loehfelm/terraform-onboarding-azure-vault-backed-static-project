@@ -85,8 +85,7 @@ resource "github_repository_file" "configuration" {
   file       = "terraform.tf"
   content = templatefile("${path.module}/github_terraform_tf.tftpl",
     {
-      terraform_organization : data.tfe_organization.this.name,
-      #terraform_project   = data.tfe_project.this.name,
+      terraform_organization : data.tfe_organization.this.name
       project_name = var.project_name
     }
   )
@@ -227,6 +226,32 @@ resource "tfe_workspace" "this" {
     github_branch.stage,
     github_branch.dev
   ]
+}
+
+# Data Source(s): Terraform Variable Set for Terraform Auth to Vault
+data "tfe_variable_set" "vault_auth" {
+  organization = var.terraform_organization
+  name         = "terraform-project-onboarding-vault-auth"
+}
+
+# Resource(s): Terraform Variable Set for Vault-backed Azure Credentials
+data "tfe_variable_set" "vault_azure" {
+  organization = var.terraform_organization
+  name         = "terraform-project-onboarding-vault-azure"
+}
+
+# Resource(s): Associate Variable Set to Project
+resource "tfe_workspace_variable_set" "vault_auth" {
+  for_each        = local.workspaces
+  variable_set_id = data.tfe_variable_set.vault_auth.id
+  workspace_id    = tfe_workspace.this[each.key].id
+}
+
+# Resource(s): Associate Variable Set to Project
+resource "tfe_workspace_variable_set" "vault_azure" {
+  for_each        = local.workspaces
+  variable_set_id = data.tfe_variable_set.vault_azure.id
+  workspace_id    = tfe_workspace.this[each.key].id
 }
 
 # Resource(s): Terraform Workspace Variable TFC_VAULT_BACKED_AZURE_RUN_VAULT_ROLE

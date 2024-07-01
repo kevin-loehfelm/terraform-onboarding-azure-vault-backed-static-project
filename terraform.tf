@@ -5,7 +5,7 @@ terraform {
     hostname     = "app.terraform.io" # Optional; defaults to app.terraform.io
     workspaces {
       project = "terraform-onboarding"
-      name    = "test-demo-project"
+      name    = "project-omega"
     }
   }
 

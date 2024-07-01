@@ -1,6 +1,6 @@
-# New Project
+# New Project with Vault-backed Azure dynamic credentials
 
-This module deploys resources to support VCS-driven Azure Infrastructure Automation. Each deployed workspace is configured to retrieve Azure dynamic credentials for a persistent Azure Service Principal.
+This module deploys resources to support VCS-driven Azure Infrastructure Automation using dynamic credentials.
 
 ## Azure
 
