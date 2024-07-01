@@ -73,8 +73,8 @@ resource "github_repository" "this" {
   visibility = "private"
 
   template {
-    owner      = "kevin-loehfelm"
-    repository = "template-demo-project"
+    owner      = "kevin-loehfelm"                      # TODO
+    repository = "template-azure-vault-backed-project" #TODO
   }
 }
 

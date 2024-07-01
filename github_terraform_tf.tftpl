@@ -1,15 +1,15 @@
 terraform {
   cloud {
-    organization = "${terraform_organization}"
+    organization = terraform_organization
     hostname     = "app.terraform.io" # Optional; defaults to app.terraform.io
     workspaces {
-      tags    = [
+      tags = [
         "platform:azure",
         "project:${project_name}",
       ]
     }
   }
-  
+
   required_providers {
     azuread = {
       source = "hashicorp/azuread" # Inherited from root or latest
