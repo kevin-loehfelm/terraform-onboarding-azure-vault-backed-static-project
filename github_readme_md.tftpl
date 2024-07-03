@@ -8,9 +8,11 @@ All HCP Terraform workspaces are configured in the following HCP Terraform organ
 
 ### Production
 
+
 | HCP Terraform Project | HCP Terraform Workspace |
 |-----------------------|-------------------------|
 | ${prod_project}       | ${prod_workspace}       |
+
 
 This repository and branch [main] can be cloned with the following commands:
 
@@ -22,9 +24,11 @@ This repository and branch [main] can be cloned with the following commands:
 
 ### Staging
 
+
 | HCP Terraform Project | HCP Terraform Workspace |
 |-----------------------|-------------------------|
 | ${stage_project}      | ${stage_workspace}      |
+
 
 This repository and branch [stage] can be cloned with the following commands:
 
@@ -36,9 +40,11 @@ This repository and branch [stage] can be cloned with the following commands:
 
 ### Development
 
+
 | HCP Terraform Project | HCP Terraform Workspace |
 |-----------------------|-------------------------|
 | ${dev_project}        | ${dev_workspace}        |
+
 
 This repository and branch [dev] can be cloned with the following commands:
 
@@ -47,6 +53,7 @@ This repository and branch [dev] can be cloned with the following commands:
 | HTTPS | git clone -b dev ${repo_clone_http} |
 | SSH | git clone -b dev ${repo_clone_ssh} |
 | GitHub CLI | gh repo clone ${repo_name} -- --branch dev |
+
 
 Baseline project content runs a confirmation that Azure dynamic credentials using Workload Identity are properly configured.
 
